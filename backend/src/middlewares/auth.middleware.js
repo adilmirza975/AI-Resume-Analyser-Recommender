@@ -1,6 +1,9 @@
 const jwt = require("jsonwebtoken")
 const tokenBlacklistModel = require("../models/blacklist.model")
 
+// Middleware -->
+// to check that we got request from which user
+// and is the token blacklisted or not 
 
 
 async function authUser(req, res, next) {
@@ -23,6 +26,7 @@ async function authUser(req, res, next) {
         })
     }
 
+    // verify token and get data from it
     try {
         const decoded = jwt.verify(token, process.env.JWT_SECRET)
 
