@@ -16,6 +16,9 @@ const tokenBlacklistModel = require("../models/blacklist.model")
 
 
 
+
+
+
 //  --------------- REGISTER LOGIC ----------------
 
 
@@ -35,7 +38,7 @@ async function registerUserController(req, res) {
         })
     }
 
-    // check if user already exist. either username or email
+    // check if user already exist.  either username or email
     const isUserAlreadyExists = await userModel.findOne({
         $or: [ { username }, { email } ]
     })
@@ -56,7 +59,7 @@ async function registerUserController(req, res) {
         password: hash
     })
 
-    // jwt sign in
+    // jwt token generation
     const token = jwt.sign(
         { id: user._id, username: user.username },
         process.env.JWT_SECRET,
@@ -76,6 +79,9 @@ async function registerUserController(req, res) {
     })
 
 }
+
+
+
 
 
 
@@ -140,8 +146,8 @@ async function loginUserController(req, res) {
 
 
 
-// --------------- LOGOUT LOGIC ----------------
-
+// --------------- LOGOUT LOGIC -> TOKEN BLACKLISTING  ----------------
+// for token blacklisting we will be using mongodb istead redis because load is not much
 
 /**
  * @name logoutUserController
