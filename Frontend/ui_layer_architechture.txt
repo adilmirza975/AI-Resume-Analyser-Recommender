@@ -1,0 +1,31 @@
+4 layer architecture
+
+
+
+UI --> handles navigation and what user the user has to be shown
+
+=> components
+=> pages
+
+
+
+
+Hook --> for managing state and api layers
+
+=> hooks
+
+
+
+
+State --> the data that is to be shown on frontend we have to store it somewhere ,we handle it using this, basically state management
+
+=> auth.context.jsx
+=> ai.context.jsx
+
+
+
+
+Api --> how our frontend communintae with our backend
+
+=> services
+  => auth.api.js

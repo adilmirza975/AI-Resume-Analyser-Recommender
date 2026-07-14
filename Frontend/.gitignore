@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+
+# basically my notes 
+ui_layer_achitechture.txt
