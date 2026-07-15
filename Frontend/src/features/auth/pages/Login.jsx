@@ -11,6 +11,8 @@ const Login = () => {
     const [ email, setEmail ] = useState("")
     const [ password, setPassword ] = useState("")
 
+
+    // handle login -->. if user logon succesful then navigate to home page
     const handleSubmit = async (e) => {
         e.preventDefault()
         await handleLogin({email,password})
@@ -30,12 +32,14 @@ const Login = () => {
                     <div className="input-group">
                         <label htmlFor="email">Email</label>
                         <input
+                        // two way binding
                             onChange={(e) => { setEmail(e.target.value) }}
                             type="email" id="email" name='email' placeholder='Enter email address' />
                     </div>
                     <div className="input-group">
                         <label htmlFor="password">Password</label>
                         <input
+                        // two way binding
                             onChange={(e) => { setPassword(e.target.value) }}
                             type="password" id="password" name='password' placeholder='Enter password' />
                     </div>

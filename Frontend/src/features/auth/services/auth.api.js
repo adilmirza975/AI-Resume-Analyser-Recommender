@@ -6,6 +6,8 @@ const api = axios.create({
     withCredentials: true
 })
 
+
+
 export async function register({ username, email, password }) {
 
     try {
@@ -16,11 +18,8 @@ export async function register({ username, email, password }) {
         return response.data
 
     } catch (err) {
-
         console.log(err)
-
     }
-
 }
 
 export async function login({ email, password }) {
